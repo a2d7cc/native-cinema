@@ -7,7 +7,7 @@ const Home: FC<PropsWithChildren> = ({ children }) => {
 	const { navigate } = useTypedNavigation()
 
 	return (
-		<View>
+		<View className='mt-10'>
 			<Text>Home</Text>
 			<Pressable onPress={() => navigate('Auth')}>
 				<Text style={{ color: 'white' }}>Go to login</Text>
