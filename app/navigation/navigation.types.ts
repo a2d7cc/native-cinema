@@ -1,8 +1,9 @@
-import { ComponentType } from "react"
+import { ComponentType } from 'react'
 
 export type TypeRootStackParamList = {
 	Auth: undefined
 	Home: undefined
+	Screen404: undefined
 } & TypeRootStackAdminList
 
 type TypeRootStackAdminList = {
