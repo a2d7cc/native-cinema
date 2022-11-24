@@ -9,6 +9,8 @@ import BottomMenu from '@/components/ui/layout/bottom-menu/BottomMenu'
 
 import { useAuth } from '@/hooks/useAuth'
 
+import { useCheckAuth } from '@/providers/useCheckAuth'
+
 import PrivateNavigation from './PrivateNavigation'
 import { TypeRootStackParamList } from './navigation.types'
 import { userRoutes } from './user.routes'
@@ -31,6 +33,8 @@ const Navigation: FC = () => {
 			navRef.removeListener('state', listener)
 		}
 	}, [])
+
+	useCheckAuth(currentRoute)
 
 	return (
 		<>

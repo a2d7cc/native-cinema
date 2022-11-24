@@ -1,14 +1,11 @@
-import { FC } from 'react';
-import { Control } from 'react-hook-form';
+import { FC } from 'react'
+import { Control } from 'react-hook-form'
 import { Text, View } from 'react-native'
 
 import { Field } from '@/components/ui'
 
-
-
-import { validEmail } from '@/shared/regex';
-import { IAuthFormData } from '@/shared/types/auth.interface';
-
+import { validEmail } from '@/shared/regex'
+import { IAuthFormData } from '@/shared/types/auth.interface'
 
 interface IAuthFields {
 	control: Control<IAuthFormData>
@@ -35,6 +32,7 @@ const AuthFields: FC<IAuthFields> = ({ control, isPassRequired }) => {
 			<Field<IAuthFormData>
 				placeholder='Enter a password'
 				control={control}
+				secureTextEntry
 				name='password'
 				rules={
 					isPassRequired

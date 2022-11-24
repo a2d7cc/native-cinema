@@ -2,7 +2,8 @@ import { FC, PropsWithChildren, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Pressable, Text, View } from 'react-native'
 
-import { Button, Loader, DismissKeyboard } from '@/components/ui'
+import { useAuthMutations } from '@/components/services/auth/useAuthMutations'
+import { Button, DismissKeyboard, Loader } from '@/components/ui'
 
 import { IAuthFormData } from '@/shared/types/auth.interface'
 
@@ -14,11 +15,15 @@ const Auth: FC<PropsWithChildren> = ({ children }) => {
 		mode: 'onChange'
 	})
 
-	const onSubmit: SubmitHandler<IAuthFormData> = ({ email, password }) => {
-		console.log(email, password)
-	}
+	const { isLoading, registerSync, loginSync } = useAuthMutations(reset)
 
-	const isLoading = false
+	const onSubmit: SubmitHandler<IAuthFormData> = data => {
+		if (isReg) {
+			registerSync(data)
+		} else {
+			loginSync(data)
+		}
+	}
 
 	return (
 		<DismissKeyboard>
