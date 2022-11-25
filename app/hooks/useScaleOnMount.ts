@@ -1,5 +1,9 @@
-import { useEffect } from "react"
-import { useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated"
+import { useEffect } from 'react'
+import {
+	useAnimatedStyle,
+	useSharedValue,
+	withSpring
+} from 'react-native-reanimated'
 
 export const useScaleOnMount = () => {
 	const scale = useSharedValue(0)
