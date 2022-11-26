@@ -28,7 +28,6 @@ export const useProfile = (setValue: UseFormSetValue<IAuthFormData>) => {
 	)
 
 	const onSubmit: SubmitHandler<IAuthFormData> = async data => {
-		console.log(data)
 		await mutateAsync(data)
 	}
 
