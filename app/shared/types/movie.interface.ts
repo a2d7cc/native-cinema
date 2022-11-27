@@ -1,6 +1,5 @@
-import { IActor } from "./actor.interface"
-import { IGenre } from "./genre.interface"
-
+import { IActor } from './actor.interface'
+import { IGenre } from './genre.interface'
 
 export interface IParameters {
 	year: number

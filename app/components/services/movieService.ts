@@ -27,21 +27,21 @@ export const MovieService = {
 
 	async getBySlug(slug: string) {
 		return request<IMovie>({
-			url: getMoviesUrl(`by-slug/${slug}`),
+			url: getMoviesUrl(`/by-slug/${slug}`),
 			method: 'GET'
 		})
 	},
 
 	async getByActor(actorId: string) {
 		return request<IMovie[]>({
-			url: getMoviesUrl(`by-actor/${actorId}`),
+			url: getMoviesUrl(`/by-actor/${actorId}`),
 			method: 'GET'
 		})
 	},
 
-	async getByGenres(genreIds: string) {
+	async getByGenres(genreIds: string[]) {
 		return request<IMovie[]>({
-			url: getMoviesUrl(`by-genres}`),
+			url: getMoviesUrl(`/by-genres`),
 			method: 'POST',
 			data: { genreIds }
 		})
