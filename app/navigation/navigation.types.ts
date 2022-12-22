@@ -15,6 +15,9 @@ export type TypeRootStackParamList = {
 	Genre: {
 		slug: string
 	}
+	Actor: {
+		slug: string
+	}
 } & TypeRootStackAdminList
 
 type TypeRootStackAdminList = {

@@ -8,10 +8,6 @@ import { useSearch } from './useSearch'
 
 const Search: FC = () => {
 	const { searchTerm, movies, isLoading, control } = useSearch()
-	console.log(isLoading)
-	console.log(searchTerm)
-	console.log(movies)
-
 	return (
 		<Layout isHasPadding>
 			<Heading title='Search' />
