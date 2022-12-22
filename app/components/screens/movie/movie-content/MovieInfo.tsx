@@ -1,16 +1,18 @@
-import { Entypo } from '@expo/vector-icons'
-import { FC } from 'react'
-import { Animated, StyleSheet, Text, View } from 'react-native'
+import { Entypo } from '@expo/vector-icons';
+import { FC } from 'react';
+import { Animated, StyleSheet, Text, View } from 'react-native';
 
-import { GenreList, Rating } from '@/components/ui'
 
-import { IMovie } from '@/shared/types/movie.interface'
 
-interface IMovieHeader {
-	movie: IMovie
-}
+import { GenreList, Rating } from '@/components/ui';
 
-const MovieInfo: FC<IMovieHeader> = ({ movie }) => {
+
+
+import { IMovie } from '@/shared/types/movie.interface';
+import { IMovieComponent } from '../movie-page.interface';
+
+
+const MovieInfo: FC<IMovieComponent> = ({ movie }) => {
 	return (
 		<Animated.View className='px-6 mb-3'>
 			<Text

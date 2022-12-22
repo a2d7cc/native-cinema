@@ -1,18 +1,22 @@
-import { FC } from 'react'
-import { Animated, Platform, StyleSheet, Text, View } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { FC } from 'react';
+import { Animated, Platform, StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { BlurButton, FavoriteButton, Rating } from '@/components/ui'
 
-import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
-import { IMovie } from '@/shared/types/movie.interface'
+import { BlurButton, FavoriteButton, Rating } from '@/components/ui';
 
-interface IMovieHeader {
-	movie: IMovie
-}
 
-const MovieHeader: FC<IMovieHeader> = ({ movie }) => {
+
+import { useTypedNavigation } from '@/hooks/useTypedNavigation';
+
+
+
+import { IMovie } from '@/shared/types/movie.interface';
+import { IMovieComponent } from './movie-page.interface';
+
+
+const MovieHeader: FC<IMovieComponent> = ({ movie }) => {
 	const { goBack } = useTypedNavigation()
 
 	const { top } = useSafeAreaInsets()
