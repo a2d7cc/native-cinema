@@ -3,17 +3,20 @@ import { Text, View } from 'react-native'
 
 import { Layout, Loader } from '@/components/ui'
 
-import { useMovie } from './useMovie'
+import MovieBackground from './MovieBackground'
 import MovieHeader from './MovieHeader'
+import MovieInfo from './MovieInfo'
+import { useMovie } from './useMovie'
 
 /* 
-[] - Header
-[] - Info
-[] - Background
-[] - Animation
+[x] - Header
+[x] - Info
+[x] - Background
+[] - MovieContent
 [] - Actor carousel
-[] - Video Player
 [] - Related movies
+[] - Animation
+[] - Video Player
 [] - useCountOpened
 */
 
@@ -26,6 +29,8 @@ const Movie: FC = () => {
 	return (
 		<Layout style={{ paddingTop: 0 }}>
 			<MovieHeader movie={movie} />
+			<MovieBackground movie={movie} />
+			<MovieInfo movie={movie} />
 		</Layout>
 	)
 }
