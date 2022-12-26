@@ -30,6 +30,7 @@ const Layout: FC<PropsWithChildren<ILayout>> = ({
 			>
 				{children}
 			</View>
+			
 		</SafeAreaView>
 	)
 }

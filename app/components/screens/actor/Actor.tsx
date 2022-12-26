@@ -1,12 +1,22 @@
-import {FC} from "react"
-import { Text, View } from 'react-native'
+import { FC } from 'react'
+
+import { useActor } from '@/components/screens/actor/useActor'
+import { Layout, Loader, MovieCatalog, NotFound } from '@/components/ui'
 
 const Actor: FC = () => {
-	return (
-		<View>
-		 <Text>Actor</Text>
-		</View>
-	)
-};
+	const { isLoading, movies, actor } = useActor()
 
-export default Actor;
+	if (isLoading) return <Loader />
+
+	return (
+		<Layout isHasPadding>
+			{actor ? (
+				<MovieCatalog movies={movies} title={actor.name} isBackButton />
+			) : (
+				<NotFound />
+			)}
+		</Layout>
+	)
+}
+
+export default Actor
