@@ -8,6 +8,7 @@ import MovieHeader from './MovieHeader'
 import MovieContent from './movie-content/MovieContent'
 import MovieInfo from './movie-content/MovieInfo'
 import { useMovie } from './useMovie'
+import { useUpdateCountOpened } from './useUpdateCountOpened'
 
 /* 
 [x] - Header
@@ -25,6 +26,7 @@ const Movie: FC = () => {
 	const y = useRef(new Animated.Value(0)).current
 
 	const { movie, isLoading } = useMovie()
+	useUpdateCountOpened()
 
 
 	if (isLoading) return <Loader />
