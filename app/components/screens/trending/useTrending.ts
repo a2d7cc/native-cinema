@@ -1,9 +1,15 @@
-import { MovieService } from "@/components/services/movieService"
-import { useQuery } from "@tanstack/react-query"
+import { useQuery } from '@tanstack/react-query'
 
-export const useTrending = () => {
-	const {isLoading, data: movies} = useQuery(['get trending movies'], 
-	() => MovieService.getMostPopularMovies())
+import { MovieService } from '@/components/services/movieService'
 
-	return {isLoading, movies}
+export const useTrending = (limit?: number) => {
+	const { isLoading, data: movies } = useQuery(
+		['get trending movies'],
+		() => MovieService.getMostPopularMovies(),
+		{
+			select: data => (limit ? data.slice(0, limit) : data)
+		}
+	)
+
+	return { isLoading, movies }
 }
