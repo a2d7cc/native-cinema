@@ -1,12 +1,30 @@
-import {FC} from "react"
-import { Text, View } from 'react-native'
+import { FC } from 'react'
 
-const MoviesList: FC = () => {
+import {
+	AdminNavigation,
+	AdminTable,
+	AdminTableHeader,
+	Layout
+} from '@/components/ui'
+import AdminHeader from '@/components/ui/admin/table-header/AdminHeader'
+
+import { useMovies } from './useMovies'
+
+const MovieList: FC = () => {
+	const { control, isLoading, data, deleteAsync, createAsync } = useMovies()
+
 	return (
-		<View>
-		 <Text>MoviesList</Text>
-		</View>
+		<Layout isHasPadding>
+			<AdminNavigation title='Movies' />
+			<AdminHeader control={control} onPress={createAsync} />
+			<AdminTable
+				tableItems={data}
+				isLoading={isLoading}
+				headerItems={['Title', 'Main genre', 'Rating']}
+				removeHandler={deleteAsync}
+			/>
+		</Layout>
 	)
-};
+}
 
-export default MoviesList;
+export default MovieList

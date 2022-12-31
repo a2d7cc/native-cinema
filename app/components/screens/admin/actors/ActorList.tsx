@@ -1,12 +1,30 @@
-import {FC} from "react"
-import { Text, View } from 'react-native'
+import { FC } from 'react'
+
+import {
+	AdminNavigation,
+	AdminTable,
+	AdminTableHeader,
+	Layout
+} from '@/components/ui'
+import AdminHeader from '@/components/ui/admin/table-header/AdminHeader'
+
+import { useActors } from './useActors'
 
 const ActorList: FC = () => {
-	return (
-		<View>
-		 <Text>ActorList</Text>
-		</View>
-	)
-};
+	const { control, isLoading, data, deleteAsync, createAsync } = useActors()
 
-export default ActorList;
+	return (
+		<Layout isHasPadding>
+			<AdminNavigation title='Actors' />
+			<AdminHeader control={control} onPress={createAsync} />
+			<AdminTable
+				tableItems={data}
+				isLoading={isLoading}
+				headerItems={['Name', 'Count movies']}
+				removeHandler={deleteAsync}
+			/>
+		</Layout>
+	)
+}
+
+export default ActorList
