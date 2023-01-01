@@ -1,8 +1,9 @@
 import { FC } from 'react'
 import { ScrollView, Text, View } from 'react-native'
 
-import { AdminTableHeader, Loader } from '../..'
+import Loader from '../../Loader'
 
+import AdminTableHeader from './AdminTableHeader'
 import AdminTableItem from './AdminTableItem'
 import { IAdminTable } from './admin-table.interface'
 

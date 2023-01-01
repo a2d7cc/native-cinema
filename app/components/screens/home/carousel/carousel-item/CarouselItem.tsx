@@ -1,6 +1,11 @@
 import { FC } from 'react'
 import { Animated, Image, Pressable, Text, View } from 'react-native'
 
+import { useItemAnimation } from '@/components/screens/home/carousel/carousel-item/useItemAnimation'
+import {
+	ITEM_SIZE,
+	SPACING
+} from '@/components/screens/home/carousel/carousel.constants'
 import { FavoriteButton, GenreList, Rating } from '@/components/ui'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
@@ -8,10 +13,6 @@ import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 import { IMovie } from '@/shared/types/movie.interface'
 
 import { useGetMediaSource } from '@/utils/useGetMediaSource'
-
-import { ITEM_SIZE, SPACING } from '../carousel.constants'
-
-import { useItemAnimation } from './useItemAnimation'
 
 interface ICarouselItem {
 	index: number
@@ -48,7 +49,6 @@ const CarouselItem: FC<ICarouselItem> = ({ movie, index, scrollX }) => {
 					<View className='absolute z-1 right-2 top-2'>
 						<FavoriteButton movieId={movie._id} />
 					</View>
-
 					<Image
 						style={{
 							height: ITEM_SIZE * 1.3,
@@ -60,11 +60,12 @@ const CarouselItem: FC<ICarouselItem> = ({ movie, index, scrollX }) => {
 						source={useGetMediaSource(movie.poster)}
 					/>
 				</Pressable>
-				<Animated.View className='items-center' style={{
-					opacity: opacityElements
-				}}>
+				<Animated.View
+					className={'items-center'}
+					style={{ opacity: opacityElements }}
+				>
+					<Rating rating={movie.rating} />
 					<Pressable onPress={() => navigate('Movie', { slug: movie.slug })}>
-						<Rating rating={movie.rating} />
 						<Text
 							className='text-white text-3xl font-semibold opacity-95 mb-2.5'
 							numberOfLines={1}
@@ -72,7 +73,6 @@ const CarouselItem: FC<ICarouselItem> = ({ movie, index, scrollX }) => {
 							{movie.title}
 						</Text>
 					</Pressable>
-
 					<GenreList genres={movie.genres} />
 				</Animated.View>
 			</Animated.View>

@@ -13,7 +13,10 @@ export {
 
 export { default as Field } from './form-elements/field/Field'
 export { default as DismissKeyboard } from './form-elements/field/DismissKeyboard'
-
+export { default as SlugWrapper } from './form-elements/field/SlugWrapper'
+export { default as TextEditor } from './form-elements/text-editor/TextEditor'
+export { default as Dropdown } from './form-elements/dropdown/Dropdown'
+export { default as UploadField } from './form-elements/upload-field/UploadField'
 export { default as Layout } from './layout/Layout'
 export { default as NotFound } from './NotFound'
 export { default as Rating } from './movie/movie-item/Rating'

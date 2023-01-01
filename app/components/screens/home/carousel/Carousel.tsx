@@ -1,5 +1,5 @@
 import { FC, useRef } from 'react'
-import { Animated, FlatList, Platform, Text, View } from 'react-native'
+import { Animated, Platform, View } from 'react-native'
 
 import { IMovie } from '@/shared/types/movie.interface'
 
@@ -18,17 +18,17 @@ const Carousel: FC<{ movies: IMovie[] }> = ({ movies }) => {
 					{ _id: 'last' } as IMovie
 				]}
 				keyExtractor={item => `key ${item._id}`}
-				horizontal
 				showsHorizontalScrollIndicator={false}
+				horizontal
 				bounces={false}
 				renderToHardwareTextureAndroid
 				contentContainerStyle={{
 					alignItems: 'center'
 				}}
 				scrollEventThrottle={16}
-				decelerationRate={Platform.OS === 'ios' ? 0 : 0.98}
 				snapToInterval={ITEM_SIZE}
 				snapToAlignment='start'
+				decelerationRate={Platform.OS === 'ios' ? 0 : 0.98}
 				onScroll={Animated.event(
 					[{ nativeEvent: { contentOffset: { x: scrollX } } }],
 					{ useNativeDriver: true }

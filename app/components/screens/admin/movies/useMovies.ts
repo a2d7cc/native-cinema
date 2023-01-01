@@ -23,7 +23,7 @@ export const useMovies = () => {
 						_id: movie._id,
 						editNavigate: () =>
 							navigate('MovieEdit', {
-								id: movie._id
+								id: `${movie._id}`
 							}),
 						items: [
 							movie.title,
